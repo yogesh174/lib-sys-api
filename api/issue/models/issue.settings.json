@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "issues",
+  "info": {
+    "name": "Issue"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "book": {
+      "model": "book",
+      "via": "issues"
+    },
+    "issuedBy": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "booksIssued"
+    },
+    "issuedTo": {
+      "via": "booksIssued",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "issuedOn": {
+      "type": "datetime",
+      "required": true
+    },
+    "dueDate": {
+      "type": "date",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "issued",
+        "returned"
+      ],
+      "default": "issued",
+      "required": true
+    },
+    "returnedTo": {
+      "via": "booksReturned",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "returnedOn": {
+      "type": "date",
+      "required": false
+    }
+  }
+}

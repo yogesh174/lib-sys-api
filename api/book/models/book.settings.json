@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "name": "Book"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "copies": {
+      "type": "integer",
+      "required": true
+    },
+    "createdOn": {
+      "type": "datetime",
+      "required": true
+    },
+    "pages": {
+      "type": "integer"
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "categories": {
+      "type": "json"
+    },
+    "issues": {
+      "via": "book",
+      "collection": "issue"
+    }
+  }
+}
