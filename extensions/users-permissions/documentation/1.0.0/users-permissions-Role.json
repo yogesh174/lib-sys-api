@@ -563,26 +563,23 @@
                 "role": {
                   "type": "string"
                 },
-                "booksIssued": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "booksReturned": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "profilePicture": {
-                  "type": "string"
-                },
                 "firstName": {
                   "type": "string"
                 },
                 "lastName": {
                   "type": "string"
+                },
+                "booksBorrowed": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "booksIssued": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"

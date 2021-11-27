@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/09/2021 4:05:39 PM"
+    "x-generation-date": "11/27/2021 1:41:42 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3302,7 +3302,8 @@
           "title",
           "author",
           "copies",
-          "createdOn"
+          "createdOn",
+          "cover"
         ],
         "properties": {
           "id": {
@@ -3393,56 +3394,6 @@
           },
           "categories": {
             "type": "object"
-          },
-          "issues": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "issuedOn",
-                "dueDate",
-                "status"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "book": {
-                  "type": "string"
-                },
-                "issuedBy": {
-                  "type": "string"
-                },
-                "issuedTo": {
-                  "type": "string"
-                },
-                "issuedOn": {
-                  "type": "string"
-                },
-                "dueDate": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "issued",
-                    "returned"
-                  ]
-                },
-                "returnedTo": {
-                  "type": "string"
-                },
-                "returnedOn": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       },
@@ -3491,7 +3442,6 @@
         "required": [
           "id",
           "issuedOn",
-          "dueDate",
           "status"
         ],
         "properties": {
@@ -3504,7 +3454,8 @@
               "title",
               "author",
               "copies",
-              "createdOn"
+              "createdOn",
+              "cover"
             ],
             "properties": {
               "id": {
@@ -3545,74 +3496,6 @@
               }
             }
           },
-          "issuedBy": {
-            "required": [
-              "id",
-              "username",
-              "email",
-              "firstName",
-              "lastName"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "booksIssued": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "booksReturned": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "profilePicture": {
-                "type": "string"
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "issuedTo": {
             "required": [
               "id",
@@ -3652,26 +3535,23 @@
               "role": {
                 "type": "string"
               },
-              "booksIssued": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "booksReturned": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "profilePicture": {
-                "type": "string"
-              },
               "firstName": {
                 "type": "string"
               },
               "lastName": {
                 "type": "string"
+              },
+              "booksBorrowed": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "booksIssued": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -3685,10 +3565,6 @@
             "type": "string",
             "format": "date-time"
           },
-          "dueDate": {
-            "type": "string",
-            "format": "date"
-          },
           "status": {
             "type": "string",
             "default": "issued",
@@ -3697,7 +3573,11 @@
               "returned"
             ]
           },
-          "returnedTo": {
+          "returnedOn": {
+            "type": "string",
+            "format": "date"
+          },
+          "issuedBy": {
             "required": [
               "id",
               "username",
@@ -3736,26 +3616,23 @@
               "role": {
                 "type": "string"
               },
-              "booksIssued": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "booksReturned": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "profilePicture": {
-                "type": "string"
-              },
               "firstName": {
                 "type": "string"
               },
               "lastName": {
                 "type": "string"
+              },
+              "booksBorrowed": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "booksIssued": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -3764,24 +3641,16 @@
                 "type": "string"
               }
             }
-          },
-          "returnedOn": {
-            "type": "string",
-            "format": "date"
           }
         }
       },
       "NewIssue": {
         "required": [
           "issuedOn",
-          "dueDate",
           "status"
         ],
         "properties": {
           "book": {
-            "type": "string"
-          },
-          "issuedBy": {
             "type": "string"
           },
           "issuedTo": {
@@ -3791,10 +3660,6 @@
             "type": "string",
             "format": "date-time"
           },
-          "dueDate": {
-            "type": "string",
-            "format": "date"
-          },
           "status": {
             "type": "string",
             "default": "issued",
@@ -3803,12 +3668,12 @@
               "returned"
             ]
           },
-          "returnedTo": {
-            "type": "string"
-          },
           "returnedOn": {
             "type": "string",
             "format": "date"
+          },
+          "issuedBy": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -3919,26 +3784,23 @@
                 "role": {
                   "type": "string"
                 },
-                "booksIssued": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "booksReturned": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "profilePicture": {
-                  "type": "string"
-                },
                 "firstName": {
                   "type": "string"
                 },
                 "lastName": {
                   "type": "string"
+                },
+                "booksBorrowed": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "booksIssued": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -4055,13 +3917,61 @@
               }
             }
           },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "booksBorrowed": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "issuedOn",
+                "status"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "book": {
+                  "type": "string"
+                },
+                "issuedTo": {
+                  "type": "string"
+                },
+                "issuedOn": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "issued",
+                    "returned"
+                  ]
+                },
+                "returnedOn": {
+                  "type": "string"
+                },
+                "issuedBy": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "booksIssued": {
             "type": "array",
             "items": {
               "required": [
                 "id",
                 "issuedOn",
-                "dueDate",
                 "status"
               ],
               "properties": {
@@ -4071,16 +3981,10 @@
                 "book": {
                   "type": "string"
                 },
-                "issuedBy": {
-                  "type": "string"
-                },
                 "issuedTo": {
                   "type": "string"
                 },
                 "issuedOn": {
-                  "type": "string"
-                },
-                "dueDate": {
                   "type": "string"
                 },
                 "status": {
@@ -4090,10 +3994,10 @@
                     "returned"
                   ]
                 },
-                "returnedTo": {
+                "returnedOn": {
                   "type": "string"
                 },
-                "returnedOn": {
+                "issuedBy": {
                   "type": "string"
                 },
                 "created_by": {
@@ -4104,129 +4008,6 @@
                 }
               }
             }
-          },
-          "booksReturned": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "issuedOn",
-                "dueDate",
-                "status"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "book": {
-                  "type": "string"
-                },
-                "issuedBy": {
-                  "type": "string"
-                },
-                "issuedTo": {
-                  "type": "string"
-                },
-                "issuedOn": {
-                  "type": "string"
-                },
-                "dueDate": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "issued",
-                    "returned"
-                  ]
-                },
-                "returnedTo": {
-                  "type": "string"
-                },
-                "returnedOn": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "profilePicture": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
           }
         }
       },
@@ -4271,23 +4052,23 @@
           "role": {
             "type": "string"
           },
-          "booksIssued": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "booksReturned": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "firstName": {
             "type": "string"
           },
           "lastName": {
             "type": "string"
+          },
+          "booksBorrowed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "booksIssued": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

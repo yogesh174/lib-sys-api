@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "books",
   "info": {
-    "name": "Book"
+    "name": "Book",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -37,7 +38,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false,
+      "required": true,
       "pluginOptions": {}
     },
     "categories": {
@@ -45,6 +46,7 @@
     },
     "issues": {
       "via": "book",
+      "private": true,
       "collection": "issue"
     }
   }

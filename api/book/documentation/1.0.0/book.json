@@ -520,7 +520,8 @@
           "title",
           "author",
           "copies",
-          "createdOn"
+          "createdOn",
+          "cover"
         ],
         "properties": {
           "id": {
@@ -611,56 +612,6 @@
           },
           "categories": {
             "type": "object"
-          },
-          "issues": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "issuedOn",
-                "dueDate",
-                "status"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "book": {
-                  "type": "string"
-                },
-                "issuedBy": {
-                  "type": "string"
-                },
-                "issuedTo": {
-                  "type": "string"
-                },
-                "issuedOn": {
-                  "type": "string"
-                },
-                "dueDate": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "issued",
-                    "returned"
-                  ]
-                },
-                "returnedTo": {
-                  "type": "string"
-                },
-                "returnedOn": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       },
