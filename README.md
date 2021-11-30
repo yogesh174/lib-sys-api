@@ -6,13 +6,13 @@ LibSys is a complete library management system for adding, issuing, and returnin
 
 ```bash
 # clone the repo
-git clone https://github.com/yogesh174/lib-sys.git
+git clone https://github.com/yogesh174/lib-sys-api.git
 
 # install packages
 yarn install
 
 # start the application
-yarn run dev --host
+yarn develop
 ```
 
 > Note: Before starting the application create a `.env` file similar to the one shown in `.env.example` and provide the credentails to a MongoDB. The current demo is running on an Atlas free version.
